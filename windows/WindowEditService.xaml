@@ -1,0 +1,37 @@
+﻿<Window x:Class="Learndb.windows.WindowEditService"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Learndb.windows"
+        mc:Ignorable="d"
+        Title="Курсы" Height="550" Width="800" Style="{StaticResource WindowIcon}">
+    <Grid>
+        <StackPanel Width="300" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label>Наименование</Label>
+            <TextBox Height="30" Text="{Binding Title}"></TextBox>
+            <Label>Цена</Label>
+            <TextBox Height="30" Text="{Binding Cost, StringFormat={}{0:F2}}"></TextBox>
+            <Label>Длительность</Label>
+            <TextBox Height="30" Text="{Binding DurationInSeconds}"></TextBox>
+            <Label>Описание</Label>
+            <TextBox Height="30" Text="{Binding Descripion}"></TextBox>
+            <Label>Скидка</Label>
+            <TextBox Height="30" Text="{Binding Discount, StringFormat={}{0:p}}"></TextBox>
+            <Label>Путь к фото</Label>
+            <ComboBox Name="cbImagePath" SelectedValuePath="MainImagePath" SelectedValue="{Binding MainImagePath}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="{Binding FullPath}" Width="40"/>
+                            <Label Content="{Binding MainImagePath}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <Button Content="Добавить..." Width="80" HorizontalAlignment="Right" Click="bt_files"/>
+
+            <Button Content="Сохранить" Click="bt_SaveClick" Margin="0, 10"/>
+        </StackPanel>
+    </Grid>
+</Window>

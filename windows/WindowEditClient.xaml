@@ -1,0 +1,33 @@
+﻿<Window x:Class="Learndb.windows.WindowEditClient"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Learndb.windows"
+        mc:Ignorable="d"
+        Title="Клиенты" Height="600" Width="380" Style="{StaticResource WindowIcon}">
+    <Grid>
+        <StackPanel Width="300" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label>Фамилия</Label>
+            <TextBox Height="30" Text="{Binding FirstName}"></TextBox>
+            <Label>Имя</Label>
+            <TextBox Height="30" Text="{Binding LastName}"></TextBox>
+            <Label>Отчество</Label>
+            <TextBox Height="30" Text="{Binding Patronymic}"></TextBox>
+            <Label>Дата рождения</Label>
+            <TextBox Height="30" Text="{Binding Birthday, StringFormat={} {0:d}}"></TextBox>
+            <Label>Дата регистрации</Label>
+            <TextBox Height="30" Text="{Binding RegistrationDate, StringFormat={} {0:d}}"></TextBox>
+            <Label>E-mail</Label>
+            <TextBox Height="30" Text="{Binding Email}"></TextBox>
+            <Label>Телефон</Label>
+            <TextBox Height="30" Text="{Binding Phone}"></TextBox>
+            <Label >Пол</Label>
+            <ComboBox Name="cbGender" SelectedValuePath="Code" SelectedValue="{Binding GenderCode}"
+          DisplayMemberPath="Name"></ComboBox>
+            <Label>Путь для фото</Label>
+            <TextBox Height="30" Text="{Binding PhotoPath}"></TextBox>
+            <Button Content="Сохранить" Click="bt_SaveClick" Margin="0, 10"/>
+        </StackPanel>
+    </Grid>
+</Window>
